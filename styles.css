@@ -11,7 +11,6 @@ section,
 h1,
 h2,
 h3,
-p,
 blockquote,
 ul,
 li {
@@ -26,11 +25,19 @@ header {
   padding: 20px;
 }
 
-img{
-    width: 300px;
-    height: 300px;
-            float: left;
-       margin-right: 10px;
+img {
+  width: 300px;
+  height: 300px;
+  float: left;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  img {
+    float: none;
+    margin-right: 0;
+    text-align: center;
+  }
 }
 
 h1,
@@ -39,23 +46,29 @@ h3 {
   margin-bottom: 10px;
 }
 
-.video-section {
-  text-align: center;
-  margin-top: 20px;
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 p {
-        color: #353535;
-            font-family: SF Pro Display;
-            font-size: 20px;
-            font-weight: 400;
+  color: #353535;
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-weight: 400;
   margin-bottom: 15px;
-}
-
-iframe{
-    max-width: 560px;
-    width: 100%;
-    height: 300px;
 }
 
 blockquote {
@@ -76,41 +89,41 @@ blockquote {
 }
 
 @keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .animated-text {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
 
 .animated-text:nth-child(odd) {
-    animation-name: slideInLeft;
+  animation-name: slideInLeft;
 }
 
 .animated-text:nth-child(even) {
-    animation-name: slideInRight;
+  animation-name: slideInRight;
 }
 
 .highlight-block {
@@ -122,8 +135,8 @@ blockquote {
 section {
   text-align: center;
   max-width: 800px;
-  margin:auto;
-  padding: 0 15px;
+  margin: auto;
+  padding: 15px;
   background-color: #fff;
 }
 
@@ -144,6 +157,10 @@ li {
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+li:hover {
+  transform: scale(1.1);
 }
 
 .important-text {
@@ -219,20 +236,19 @@ li {
   color: #3498db;
 }
 
-.about-author{
-        color:  #353535;
-        font-family: SF Pro Display;
-            font-size: 20px;
-            font-weight: 400;
-        text-align: left;
+.about-author {
+  text-align: left;
+}
+@media (max-width: 600px) {
+  .about-author {
+    text-align: center;
+  }
 }
 
-.author{
-    text-shadow:
-            1px 1px white,
-            2px 2px #777;
-        color: #333;
-        transition: all 1s;
+.author {
+  text-shadow: 1px 1px white, 2px 2px #777;
+  color: #333;
+  transition: all 1s;
 }
 
 .participation-options button {
